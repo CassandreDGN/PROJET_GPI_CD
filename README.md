@@ -1,4 +1,4 @@
-# Projet_GPI_CD
+# Projet GPI - Cassandre DEGEN M1BBS
 
 **This is my M1's GPI project.**
 ---
