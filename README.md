@@ -12,4 +12,8 @@
 
   --- 
 
-This project is about Single Particle Analysis. The goal of the notebook is to start from a micrograph and go all the way to a single particle gallery. 
+This project is about Single Particle Analysis. The goal of the notebook is to start from a micrograph and go all the way to a single particle gallery.
+
+The .ipynb file works better when used in Google Collab, as that is where it was created. I accept no responsability from using another .ipynb reader.
+
+The mrc file is sourced from a google drive linked.
