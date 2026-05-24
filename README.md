@@ -10,32 +10,54 @@
  \______| | _|      |__|    | _|      | _| `._____| \______/   \______/  |_______| \______|    |__|   
   ``` 
 
-  --- 
+ # Cryo-EM Particle Picker — Cassandre DEGEN M1BBS
 
-#Particle Picker
+A Python script that automatically detects particles in a cryo-EM micrograph (`.mrc` file) using a reference protein structure (`.pdb` file) as a template. It detects two orientations — **top views** (the protein seen from above, circular shape) and **side views** (the protein seen from the side, rectangular shape) — and saves the results as images.
 
-A Python script that automatically detects particles in a cryo-EM micrograph (`.mrc` file) using a reference protein structure (`.pdb` file) as a template. It detects two orientations : **top views** (the protein seen from above, circular shape) and **side views** (the protein seen from the side, rectangular shape) — and saves the results as images.
 ---
+
 ## What you need before running
 
 - Python 3.9 or newer
-- The two input files in the same folder:
-  - your micrograph file (`.mrc`)
-  - your protein structure file (`.pdb`)
+- The three files below all in the **same folder** on your computer
 
 ---
 
-## Installation
+## Setup
 
-**1. Clone or download this repository**
+**1. Download the script and requirements**
 
-```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+Download these two files and put them in a folder on your computer:
+
+- [`particle_picker.py`](https://raw.githubusercontent.com/CassandreDGN/PROJET_GPI_CD/master/particle_picker.py) — right click → Save link as
+- [`requirements.txt`](https://raw.githubusercontent.com/CassandreDGN/PROJET_GPI_CD/master/requirements.txt) — right click → Save link as
+
+**2. Download the PDB structure**
+
+- [`6BDF.pdb`](https://raw.githubusercontent.com/CassandreDGN/PROJET_GPI_CD/master/6BDF.pdb) — right click → Save link as
+
+Put it in the **same folder** as the script.
+
+**3. Download the MRC micrograph**
+
+The `.mrc` file is too large to host on GitHub. Download it here:
+
+👉 [Download map.mrc from Google Drive](https://drive.google.com/uc?export=download&id=1Qj30jSXcHEpkzE04cisbP6ljtnQ2Ausr)
+
+Save it as `map.mrc` in the **same folder** as the script.
+
+Your folder should look like this before running:
+```
+your-folder/
+├── particle_picker.py
+├── requirements.txt
+├── map.mrc
+└── 6BDF.pdb
 ```
 
-**2. Install the dependencies**
+**4. Install the dependencies**
 
+Open a terminal in your folder and run:
 ```bash
 pip install -r requirements.txt
 ```
@@ -44,13 +66,6 @@ pip install -r requirements.txt
 ## How to run
 
 ```bash
-python particle_picker.py --mrc your_map.mrc --pdb your_structure.pdb
-```
-
-Replace `your_map.mrc` and `your_structure.pdb` with the actual filenames.
-
-**Example for the files provided you should use :**
-```bash
 python particle_picker.py --mrc map.mrc --pdb 6BDF.pdb
 ```
 
@@ -58,7 +73,7 @@ python particle_picker.py --mrc map.mrc --pdb 6BDF.pdb
 
 ## Outputs
 
-All output files are saved in the **same folder as your `.mrc` file** by default.
+All output files are saved in the same folder as your `.mrc` file by default.
 
 | Output | Description |
 |---|---|
@@ -77,7 +92,7 @@ python particle_picker.py --mrc map.mrc --pdb 6BDF.pdb --outdir results/
 
 ## Optional parameters
 
-You don't need to change any of these to get started, especially since its just a M1 project but nonetheless  they let you fine-tune the detection if results aren't great and change settings as you please (i did not try to change them that way though).
+You don't need to touch these to get started, but they let you fine-tune the detection if results aren't great.
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -88,13 +103,17 @@ You don't need to change any of these to get started, especially since its just 
 | `--border` | `70` | How many pixels to ignore around the image edges |
 | `--max-gallery` | `64` | Maximum number of particles shown in the gallery overview images |
 
+**Example with custom parameters:**
+```bash
+python particle_picker.py --mrc map.mrc --pdb 6BDF.pdb --thresh-top 0.30 --bin 4
+```
+
 ---
 
 ## Troubleshooting
 
 **`ModuleNotFoundError`** — a dependency is missing. Run `pip install -r requirements.txt` again.
 
-**`file not found`** — check that the path to your `.mrc` or `.pdb` file is correct, and that both files are in the same folder.
+**`file not found`** — check that your `.mrc` and `.pdb` files are in the same folder as the script and that the names match exactly.
 
 **Too many / too few particles detected** — adjust `--thresh-top` and `--thresh-side`. Increase the threshold to detect fewer (more strict), decrease it to detect more (more permissive).
-
