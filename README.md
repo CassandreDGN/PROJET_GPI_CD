@@ -42,7 +42,7 @@ Put it in the **same folder** as the script.
 
 The `.mrc` file is too large to host on GitHub. Download it here:
 
-👉 [Download map.mrc from Google Drive](https://drive.google.com/uc?export=download&id=1Qj30jSXcHEpkzE04cisbP6ljtnQ2Ausr)
+- [Download map.mrc from Google Drive](https://drive.google.com/uc?export=download&id=1Qj30jSXcHEpkzE04cisbP6ljtnQ2Ausr)
 
 Save it as `map.mrc` in the **same folder** as the script.
 
