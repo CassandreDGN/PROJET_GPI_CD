@@ -1,0 +1,9 @@
+numpy>=1.24
+matplotlib>=3.7
+opencv-python>=4.8
+scipy>=1.11
+Pillow>=10.0
+scikit-image>=0.21
+biopython>=1.81
+mrcfile>=1.5
+tifffile>=2023.1
